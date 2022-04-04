@@ -12,7 +12,7 @@ const b1c = red[900];
 
 const ShowCase = () => {
   return (
-    <Box sx={{ pt: 11, width: "100%", px: 1, bgcolor: "#303030" }}>
+    <Box sx={{ pt: 11, bgcolor: "#303030" }}>
       <Container maxWidth="md">
         <Grid
           container

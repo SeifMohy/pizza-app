@@ -7,6 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Logo from "../Pictures/Logo.png";
 import DIcon from "../Pictures/DIcon.png"
+import Badge from '@mui/material/Badge';
 
 
 const NavigationBar = () => {
@@ -20,7 +21,7 @@ const NavigationBar = () => {
             component="div"
             sx={{ mr: 2, display: { md: "flex" } }}
           >
-            Pizzzaaa Time
+            OBSD
           </Typography>
           <img src={Logo}/>
         </Box>
@@ -31,9 +32,11 @@ const NavigationBar = () => {
             Most Popular
           </Button>
           </Box>
-          <IconButton size="large" edge="end" color="inherit">
+          <Badge badgeContent={4} color="primary" overlap="circular">
+          <IconButton size="small" edge="end" color="inherit">
           <img src={DIcon}/>
           </IconButton>
+          </Badge>
         </Box>
       </Toolbar>
     </AppBar>

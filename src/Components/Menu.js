@@ -109,6 +109,35 @@ const Menu = () => {
             </Card>
           </Grid>
 
+          <Grid sm={4}>
+            <Card sx={{ display: "flex", m:1 }}>
+              <Box sx={{ display: "flex", flexDirection: "row" }}>
+                <img src={MPizza} />
+                <CardContent>
+                  <Typography component="div" variant="h5">
+                    Seafood
+                  </Typography>
+                  <Typography
+                    variant="subtitle1"
+                    color="text.secondary"
+                    component="div"
+                  >
+                    Shrimp, Squid, Pineapple
+                  </Typography>
+                  <Box sx={{ display: "flex", alignItems: "center" }}>
+                  <IconButton>
+                    <RemoveIcon />
+                  </IconButton>
+                  <Typography>1</Typography>
+                  <IconButton>
+                    <AddIcon />
+                  </IconButton>
+                </Box>
+                </CardContent>
+              </Box>
+            </Card>
+          </Grid>
+
 
         </Grid>
       </Container>

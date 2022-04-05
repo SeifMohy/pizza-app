@@ -7,8 +7,18 @@ import Dashboard from "./Components/Dashboard";
 import FooterBar from "./Components/FooterBar";
 import HomePage from "./Pages/HomePage"
 import { Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
+
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getMenu());
+  // }, []);
+
+  // const state = useSelector(state => state.posts)
+
   return (
     <div>
       <NavigationBar />

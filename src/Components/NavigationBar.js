@@ -10,6 +10,7 @@ import DIcon from "../Pictures/DIcon.png";
 import Badge from "@mui/material/Badge";
 import Popover from '@mui/material/Popover';
 import Cart from "./Cart"
+import {useSelector} from "react-redux"
 
 
 const NavigationBar = () => {
@@ -26,6 +27,9 @@ const NavigationBar = () => {
 
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
+
+  const count = useSelector((state => state.counter));
+  
 
   return (
     <AppBar elevation={0} sx={{ bgcolor: "#303030" }}>
@@ -50,7 +54,7 @@ const NavigationBar = () => {
               Most Popular
             </Button>
           </Box>
-          <Badge badgeContent={4} color="primary" overlap="circular">
+          <Badge badgeContent={count} color="primary" overlap="circular">
             <IconButton
               size="small"
               edge="end"

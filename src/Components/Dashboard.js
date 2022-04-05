@@ -5,7 +5,6 @@ import Button from "@mui/material/Button";
 import RectangleIcon from "@mui/icons-material/Rectangle";
 import { red } from "@mui/material/colors";
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -15,10 +14,10 @@ const b1c = red[900];
 
 const Dashboard = () => {
   return (
-    <Grid container spacing={2} sx={{ my: 5 }}>
-      <Grid sm={3} sx={{ pt: 6, bgcolor: "#303030"}}>
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <Typography sx={{ color: "white" }} variant="h3">
+    <Grid container spacing={2} sx={{ mb:0, mt: 5, maxWidth:"lg" , minHeight:"85vh"}}>
+      <Grid sm={3} sx={{ py: 6, bgcolor: "#303030"}}>
+        <Box sx={{ display: "flex", justifyContent: "center"}}>
+          <Typography sx={{ color: "white" }} variant="h4">
             Dashboard
           </Typography>
         </Box>
@@ -42,13 +41,12 @@ const Dashboard = () => {
         sm={9}
         spacing={2}
         sx={{
-          mt: 2,
+          mt: 5,
           display: "flex",
           flexWrap: "wrap",
           displayDirection: "row",
         }}
       >
-
         <Grid sm={5} sx={{ m: 3 }}>
           <Card>
             <Box sx={{ bgcolor: "#303030" }}>

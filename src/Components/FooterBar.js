@@ -11,8 +11,8 @@ import DIcon from "../Pictures/DIcon.png";
 
 const FooterBar = () => {
   return (
-    <BottomNavigation elevation={0} sx={{ bgcolor: "#303030" }}>
-      <Toolbar sx={{ justifyContent: "space-between", width: "70%", minHeight: 50}}>
+    <BottomNavigation class="footer" elevation={0}>
+      <Toolbar sx={{ justifyContent: "space-between"}}>
         <Box sx={{ display: { xs: "flex" }}}>
           <Typography
             variant="h6"

@@ -10,7 +10,8 @@ const OrderPlaced = () => {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        mt: 12,
+        mt: 3,
+        minHeight:"90vh",
       }}
     >
       <img src={Check} />

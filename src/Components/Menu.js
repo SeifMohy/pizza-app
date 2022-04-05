@@ -13,7 +13,7 @@ import AddIcon from '@mui/icons-material/Add';
 
 const Menu = () => {
   return (
-    <Box sx={{ mt: 3 }}>
+    <Box sx={{ mt: 3, minHeight:"50vh"}}>
       <Container maxWidth="lg">
         <Grid
           container
@@ -37,6 +37,65 @@ const Menu = () => {
                   >
                     Shrimp, Squid, Pineapple
                   </Typography>
+                  <Typography>Price: 120</Typography>
+                  <Box sx={{ display: "flex", alignItems: "center" }}>
+                  <IconButton>
+                    <RemoveIcon />
+                  </IconButton>
+                  <Typography>0</Typography>
+                  <IconButton>
+                    <AddIcon />
+                  </IconButton>
+                </Box>
+                </CardContent>
+              </Box>
+            </Card>
+          </Grid>
+
+          <Grid sm={4}>
+            <Card sx={{ display: "flex", m:1 }}>
+              <Box sx={{ display: "flex", flexDirection: "row" }}>
+                <img src={MPizza} />
+                <CardContent>
+                  <Typography component="div" variant="h5">
+                    Seafood
+                  </Typography>
+                  <Typography
+                    variant="subtitle1"
+                    color="text.secondary"
+                    component="div"
+                  >
+                    Shrimp, Squid, Pineapple
+                  </Typography>
+                  <Box sx={{ display: "flex", alignItems: "center" }}>
+                  <IconButton>
+                    <RemoveIcon />
+                  </IconButton>
+                  <Typography>1</Typography>
+                  <IconButton>
+                    <AddIcon />
+                  </IconButton>
+                </Box>
+                </CardContent>
+              </Box>
+            </Card>
+          </Grid>
+
+          <Grid sm={4}>
+            <Card sx={{ display: "flex", m:1 }}>
+              <Box sx={{ display: "flex", flexDirection: "row" }}>
+                <img src={MPizza} />
+                <CardContent>
+                  <Typography component="div" variant="h5">
+                    Seafood
+                  </Typography>
+                  <Typography
+                    variant="subtitle1"
+                    color="text.secondary"
+                    component="div"
+                  >
+                    Shrimp, Squid, Pineapple
+                  </Typography>
                   <Box sx={{ display: "flex", alignItems: "center" }}>
                   <IconButton>
                     <RemoveIcon />
@@ -108,6 +167,7 @@ const Menu = () => {
               </Box>
             </Card>
           </Grid>
+
 
           <Grid sm={4}>
             <Card sx={{ display: "flex", m:1 }}>

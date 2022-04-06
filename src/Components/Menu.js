@@ -10,16 +10,16 @@ import IconButton from "@mui/material/IconButton";
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import {useSelector, useDispatch} from "react-redux"
-import {Increment} from "../Actions/OrderActions"
+import {Increment, Decrement} from "../Actions/OrderActions"
 
 const Menu = () => {
     const MenuItems=[
-        {name:"Seafood", order:"0", price:"120", description:"Shrimp, Squid, Pineapple", image:MPizza, id:"1"},
-        {name:"Seafood", order:"0", price:"120", description:"Shrimp, Squid, Pineapple", image:MPizza, id:"2"},
-        {name:"Seafood", order:"0", price:"120", description:"Shrimp, Squid, Pineapple", image:MPizza, id:"3"},
-        {name:"Seafood", order:"0", price:"120", description:"Shrimp, Squid, Pineapple", image:MPizza, id:"4"},
-        {name:"Seafood", order:"0", price:"120", description:"Shrimp, Squid, Pineapple", image:MPizza, id:"5"},
-        {name:"Seafood", order:"0", price:"120", description:"Shrimp, Squid, Pineapple", image:MPizza, id:"6"},
+        {name:"Seafood", order:0, price:"120", description:"Shrimp, Squid, Pineapple", image:MPizza, id:"1"},
+        {name:"Seafood", order:0, price:"120", description:"Shrimp, Squid, Pineapple", image:MPizza, id:"2"},
+        {name:"Seafood", order:0, price:"120", description:"Shrimp, Squid, Pineapple", image:MPizza, id:"3"},
+        {name:"Seafood", order:0, price:"120", description:"Shrimp, Squid, Pineapple", image:MPizza, id:"4"},
+        {name:"Seafood", order:0, price:"120", description:"Shrimp, Squid, Pineapple", image:MPizza, id:"5"},
+        {name:"Seafood", order:0, price:"120", description:"Shrimp, Squid, Pineapple", image:MPizza, id:"6"},
     ]
     
     const count = useSelector((state => state.counter));
@@ -37,7 +37,7 @@ const Menu = () => {
           justify="center"
           sx={{ alignItems: "center" }}
         >
-{MenuItems.map((item)=>{
+{count.map((item)=>{
     return (
         <Grid sm={4}>
         <Card sx={{ display: "flex", m:1}}>
@@ -56,11 +56,11 @@ const Menu = () => {
               </Typography>
               <Typography>Price:{item.price}</Typography>
               <Box sx={{ display: "flex", alignItems: "center" }}>
-              <IconButton>
+              <IconButton onClick={()=>dispatch(Decrement(item), console.log(item))}>
                 <RemoveIcon />
               </IconButton>
-              <Typography>{count}</Typography>
-              <IconButton onClick={()=>dispatch(Increment(item))}>
+              <Typography>{item.order}</Typography>
+              <IconButton onClick={()=>dispatch(Increment(item), console.log(item))}>
                 <AddIcon />
               </IconButton>
             </Box>

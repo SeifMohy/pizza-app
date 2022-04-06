@@ -54,7 +54,7 @@ const NavigationBar = () => {
               Most Popular
             </Button>
           </Box>
-          <Badge badgeContent={count} color="primary" overlap="circular">
+          <Badge badgeContent={0} color="primary" overlap="circular">
             <IconButton
               size="small"
               edge="end"

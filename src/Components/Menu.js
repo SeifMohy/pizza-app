@@ -13,15 +13,7 @@ import {useSelector, useDispatch} from "react-redux"
 import {Increment, Decrement} from "../Actions/OrderActions"
 
 const Menu = () => {
-    const MenuItems=[
-        {name:"Seafood", order:0, price:"120", description:"Shrimp, Squid, Pineapple", image:MPizza, id:"1"},
-        {name:"Seafood", order:0, price:"120", description:"Shrimp, Squid, Pineapple", image:MPizza, id:"2"},
-        {name:"Seafood", order:0, price:"120", description:"Shrimp, Squid, Pineapple", image:MPizza, id:"3"},
-        {name:"Seafood", order:0, price:"120", description:"Shrimp, Squid, Pineapple", image:MPizza, id:"4"},
-        {name:"Seafood", order:0, price:"120", description:"Shrimp, Squid, Pineapple", image:MPizza, id:"5"},
-        {name:"Seafood", order:0, price:"120", description:"Shrimp, Squid, Pineapple", image:MPizza, id:"6"},
-    ]
-    
+
     const count = useSelector((state => state.counter));
     const dispatch = useDispatch();
     
@@ -60,7 +52,7 @@ const Menu = () => {
                 <RemoveIcon />
               </IconButton>
               <Typography>{item.order}</Typography>
-              <IconButton onClick={()=>dispatch(Increment(item), console.log(item))}>
+              <IconButton onClick={()=>dispatch(Increment(item))}>
                 <AddIcon />
               </IconButton>
             </Box>

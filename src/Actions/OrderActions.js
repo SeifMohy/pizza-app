@@ -4,8 +4,15 @@ export const Increment = (item) =>{
         payload: item
     }
 }
-export const Decrement = () =>{
+export const Decrement = (item) =>{
     return {
-        type: "DECREMENT"
+        type: "DECREMENT",
+        payload: item
+    }
+}
+export const Delete = (item) =>{
+    return {
+        type: "DELETE",
+        payload: item
     }
 }

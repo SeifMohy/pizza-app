@@ -11,6 +11,7 @@ import Badge from "@mui/material/Badge";
 import Popover from '@mui/material/Popover';
 import Cart from "./Cart"
 import {useSelector} from "react-redux"
+import { Link } from "react-router-dom";
 
 
 const NavigationBar = () => {
@@ -29,11 +30,22 @@ const NavigationBar = () => {
   const id = open ? 'simple-popover' : undefined;
 
   const count = useSelector((state => state.counter));
+  const ordered = count.filter((item) => item.order>0)
+  const cartCount = sumOfCart(ordered);
+
+  function sumOfCart(arr) {
+    let count = 0;
+    for (const item of arr) {
+      count = count + item.order;
+    }
+    return count;
+  }
   
 
   return (
     <AppBar elevation={0} sx={{ bgcolor: "#303030" }}>
       <Toolbar sx={{ justifyContent: "space-between" }}>
+      <Link to={"/"} style={{textDecoration:"none", color:"white"}}>
         <Box sx={{ display: { xs: "flex" } }}>
           <Typography
             variant="h6"
@@ -45,6 +57,7 @@ const NavigationBar = () => {
           </Typography>
           <img src={Logo} />
         </Box>
+        </Link>
         <Box sx={{ display: { xs: "flex" } }}>
           <Box sx={{ display: { xs: "flex" } }}>
             <Button sx={{ my: 2, color: "white", display: "block" }}>
@@ -54,7 +67,7 @@ const NavigationBar = () => {
               Most Popular
             </Button>
           </Box>
-          <Badge badgeContent={0} color="primary" overlap="circular">
+          <Badge badgeContent={cartCount} color="primary" overlap="circular">
             <IconButton
               size="small"
               edge="end"

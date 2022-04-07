@@ -1,10 +1,11 @@
+import MPizza from "../Pictures/MPizza.png";
 let MenuItems = [
   {
     name: "Seafood",
     order: 0,
     price: 120,
     description: "Shrimp, Squid, Pineapple",
-    image: "MPizza",
+    image: MPizza,
     id: "1",
   },
   {
@@ -12,7 +13,7 @@ let MenuItems = [
     order: 0,
     price: 120,
     description: "Shrimp, Squid, Pineapple",
-    image: "MPizza",
+    image: MPizza,
     id: "2",
   },
   {
@@ -20,7 +21,7 @@ let MenuItems = [
     order: 0,
     price: 120,
     description: "Shrimp, Squid, Pineapple",
-    image: "MPizza",
+    image: MPizza,
     id: "3",
   },
   {
@@ -28,7 +29,7 @@ let MenuItems = [
     order: 0,
     price: 120,
     description: "Shrimp, Squid, Pineapple",
-    image: "MPizza",
+    image: MPizza,
     id: "4",
   },
   {
@@ -36,7 +37,7 @@ let MenuItems = [
     order: 0,
     price: 120,
     description: "Shrimp, Squid, Pineapple",
-    image: "MPizza",
+    image: MPizza,
     id: "5",
   },
   {
@@ -44,7 +45,7 @@ let MenuItems = [
     order: 0,
     price: 120,
     description: "Shrimp, Squid, Pineapple",
-    image: "MPizza",
+    image: MPizza,
     id: "6",
   },
 ];
@@ -60,7 +61,7 @@ const counter = (state = MenuItems, action) => {
       const orderUpdate = (action.payload.order = action.payload.order + 1);
       const newState = [...filteredState, { ...action.payload, orderUpdate }];
       console.log(newState);
-      return newState;
+      return newState.sort((a, b) => a.id - b.id);
 
     case "DECREMENT":
       const filteredStateD = state.filter((a) => {
@@ -72,7 +73,7 @@ const counter = (state = MenuItems, action) => {
         { ...action.payload, orderUpdateD },
       ];
       console.log(newStateD);
-      return newStateD;
+      return newStateD.sort((a, b) => a.id - b.id);
 
     case "DELETE":
       const filteredStateDel = state.filter((a) => {
@@ -83,7 +84,7 @@ const counter = (state = MenuItems, action) => {
         { ...action.payload, order: 0 },
       ];
       console.log(newStateDel);
-      return newStateDel;
+      return newStateDel.sort((a, b) => a.id - b.id);
 
     default:
       return state;

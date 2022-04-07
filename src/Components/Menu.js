@@ -48,7 +48,7 @@ const Menu = () => {
               </Typography>
               <Typography>Price:{item.price}</Typography>
               <Box sx={{ display: "flex", alignItems: "center" }}>
-              <IconButton onClick={()=>dispatch(Decrement(item), console.log(item))}>
+              <IconButton disabled={item.order? false:true} onClick={()=>dispatch(Decrement(item), console.log(item))}>
                 <RemoveIcon />
               </IconButton>
               <Typography>{item.order}</Typography>

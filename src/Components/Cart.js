@@ -74,11 +74,12 @@ const Cart = () => {
           }}
         >
           <Typography sx={{ mt: 1.5 }}>Subtotal: LE {subtotal}</Typography>
-          <Link to="/checkout" style={{textDecoration:"none"}}>
+          <Link to="/checkout" style={{textDecoration:"none"}} >
           <Button
             sx={{ mb: 2, color: "error" }}
             variant="contained"
             color="error"
+            fullWidth
           >
             Check Out
           </Button>

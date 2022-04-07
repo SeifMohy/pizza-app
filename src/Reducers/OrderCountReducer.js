@@ -54,6 +54,10 @@ let MenuItems = [
 
 const counter = (state = MenuItems, action) => {
   switch (action.type) {
+    case "SET_PRODUCTS":
+    return action.payload.map((item) =>{
+        return {...item, order: 0}
+    })
     case "INCREMENT":
       const filteredState = state.filter((a) => {
         return a !== action.payload;

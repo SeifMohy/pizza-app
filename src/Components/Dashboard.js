@@ -8,43 +8,15 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import {useSelector, useDispatch} from "react-redux"
+import {ToggleCheckBox} from "../Actions/DashboardActions"
 
 const b1c = red[900];
 
-const orders = [
-  {
-    name: "seif",
-    orderNumber: 1,
-    order: [
-      { name: "Seafood", order: 1, complete: true },
-      { name: "Margrita", order: 2, complete: false },
-      { name: "Peparonni", order: 1, complete: false },
-    ],
-    created: "3:40",
-  },
-  {
-    name: "Mostafa",
-    orderNumber: 2,
-    order: [
-      { name: "Seafood", order: 1, complete: false },
-      { name: "Margrita", order: 2, complete: true },
-      { name: "Peparonni", order: 1, complete: false },
-    ],
-    created: "3:40",
-  },
-  {
-    name: "Islam",
-    orderNumber: 3,
-    order: [
-      { name: "Seafood", order: 1, complete: false },
-      { name: "Margrita", order: 2, complete: false },
-      { name: "Peparonni", order: 3, complete: true },
-    ],
-    created: "3:40",
-  },
-];
-
 const Dashboard = () => {
+  const orders = useSelector((state) => state.ordered);
+  const dispatch = useDispatch();
+
   return (
     <Grid
       container
@@ -96,12 +68,18 @@ const Dashboard = () => {
                 {item.order.map((order) => {
                   return (
                     <CardContent
-                      sx={{ display: "flex", flexDirection: "column", p:0 , m:1 }}
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        p: 0,
+                        m: 1,
+                      }}
                     >
                       <FormControlLabel
                         label={`${order.name} Qty:${order.order}`}
                         control={<Checkbox color="default" />}
                         checked={order.complete}
+                        onClick={()=>dispatch(ToggleCheckBox(order ,item.orderNumber))}
                         //onClick to dispatch check box.
                       />
                     </CardContent>

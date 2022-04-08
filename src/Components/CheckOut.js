@@ -19,13 +19,13 @@ import { useNavigate } from 'react-router';
 
 const CheckOut = () => {
   const count = useSelector((state) => state.counter);
-  const ordered = count.filter((item) => item.order > 0);
+  const ordered = count.filter((item) => item.quantity > 0);
   const subtotal = sumOfOrder(ordered);
 
   function sumOfOrder(arr) {
     let count = 0;
     for (const item of arr) {
-      count = count + item.price * item.order;
+      count = count + item.price * item.quantity;
     }
     return count;
   }
@@ -53,7 +53,7 @@ const CheckOut = () => {
   });
 
   return (
-    <Grid container spacing={1} sx={{ mt: 12, minHeight: "82vh" }}>
+    <Grid container spacing={1} sx={{ mt: 10, minHeight: "82vh" }}>
       <Grid sm={7}>
         <Box
           sx={{
@@ -70,6 +70,7 @@ const CheckOut = () => {
             label="Name"
             onChange={formik.handleChange}
             value={formik.values.Name}
+            color="secondary"
           ></TextField>
           <TextField
             variant="standard"
@@ -78,6 +79,7 @@ const CheckOut = () => {
             label="Mobile"
             onChange={formik.handleChange}
             value={formik.values.Mobile}
+            color="secondary"
           ></TextField>
           <TextField
             variant="standard"
@@ -86,6 +88,7 @@ const CheckOut = () => {
             label="Address"
             onChange={formik.handleChange}
             value={formik.values.Address}
+            color="secondary"
           ></TextField>
           <TextField
             variant="standard"
@@ -94,6 +97,7 @@ const CheckOut = () => {
             name="City"
             onChange={formik.handleChange}
             value={formik.values.City}
+            color="secondary"
           ></TextField>
         </Box>
 
@@ -114,10 +118,10 @@ const CheckOut = () => {
             Order Now
           </Button>
           <Button
-            sx={{ mx: 1, color: "black" }}
+            sx={{ mx: 1 }}
             variant="outlined"
-            color="info"
             onClick={()=>{navigate("/")}}
+            color="secondary"
           >
             Cancel
           </Button>
@@ -131,7 +135,7 @@ const CheckOut = () => {
         flexItem
       />
 
-      <Grid sm={4}>
+      <Grid style={{ height: "70vh" , overflowY: "scroll" }} sm={4}>
         {ordered.map((item) => (
           <Card elevation={0} sx={{ display: "flex", m: 1 }}>
             <Box sx={{ display: "flex", flexDirection: "row" }}>
@@ -141,7 +145,7 @@ const CheckOut = () => {
                   {item.name}
                 </Typography>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <Typography>Qty: {item.order}</Typography>
+                  <Typography>Qty: {item.quantity}</Typography>
                   <IconButton onClick={() => dispatch(Decrement(item))}>
                     <RemoveIcon />
                   </IconButton>
@@ -150,7 +154,7 @@ const CheckOut = () => {
                   </IconButton>
                 </Box>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <Typography>Total: LE {item.price * item.order}</Typography>
+                  <Typography variant="subtitle1">Total: LE {item.price * item.quantity}</Typography>
                   <IconButton onClick={() => dispatch(Delete(item))}>
                     <DeleteIcon />
                   </IconButton>

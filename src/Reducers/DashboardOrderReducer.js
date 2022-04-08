@@ -45,29 +45,6 @@ const ordered = (state = orders, action) => {
         return {...item, order: newOrder}
       })
       return newState;
-      // const stateWithoutItem = state.filter((a) => {
-      //   return a.orderNumber != action.id;
-      // });
-      // const onlyTheItem = state.filter((a) => {
-      //   return a.orderNumber === action.id;
-      // });
-     //const itemWithUpdatedOrder = onlyTheItem
-      // const filteredState = state.map((item) => {
-      //   const order = [{...item.order}];
-      //   //console.log(order);
-      //   const updated = order.filter((a) => {
-      //     console.log(a);
-      //     console.log(action.payload)
-      //     return a !== action.payload;
-      //   });
-      // });
-      //const updatedOrder = (action.payload.complete = !action.payload.complete);
-      // const newState = [
-      //   ...filteredState,
-      //   [...filteredState.order, { ...action.payload, updatedOrder }],
-      // ];
-      console.log({ action});
-      return state;
     default:
       return state;
   }

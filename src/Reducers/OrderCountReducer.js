@@ -1,69 +1,16 @@
-import MPizza from "../Pictures/MPizza.png";
-let MenuItems = [
-  {
-    name: "Seafood",
-    order: 0,
-    price: 120,
-    description: "Shrimp, Squid, Pineapple",
-    image: MPizza,
-    id: "1",
-  },
-  {
-    name: "Seafood",
-    order: 0,
-    price: 120,
-    description: "Shrimp, Squid, Pineapple",
-    image: MPizza,
-    id: "2",
-  },
-  {
-    name: "Seafood",
-    order: 0,
-    price: 120,
-    description: "Shrimp, Squid, Pineapple",
-    image: MPizza,
-    id: "3",
-  },
-  {
-    name: "Seafood",
-    order: 0,
-    price: 120,
-    description: "Shrimp, Squid, Pineapple",
-    image: MPizza,
-    id: "4",
-  },
-  {
-    name: "Seafood",
-    order: 0,
-    price: 120,
-    description: "Shrimp, Squid, Pineapple",
-    image: MPizza,
-    id: "5",
-  },
-  {
-    name: "Seafood",
-    order: 0,
-    price: 120,
-    description: "Shrimp, Squid, Pineapple",
-    image: MPizza,
-    id: "6",
-  },
-];
 
-//const item = MenuItems.filter((a)=>{a.id === action.payload});
-
-const counter = (state = MenuItems, action) => {
+const counter = (state = [], action) => {
   switch (action.type) {
     case "SET_PRODUCTS":
     return action.payload.map((item) =>{
-        return {...item, order: 0}
+        return {...item, quantity: 0}
     })
     case "INCREMENT":
       const filteredState = state.filter((a) => {
         return a !== action.payload;
       });
-      const orderUpdate = (action.payload.order = action.payload.order + 1);
-      const newState = [...filteredState, { ...action.payload, orderUpdate }];
+      const quantityUpdate = (action.payload.quantity = action.payload.quantity + 1);
+      const newState = [...filteredState, { ...action.payload, quantityUpdate }];
       console.log(newState);
       return newState.sort((a, b) => a.id - b.id);
 
@@ -71,10 +18,10 @@ const counter = (state = MenuItems, action) => {
       const filteredStateD = state.filter((a) => {
         return a !== action.payload;
       });
-      const orderUpdateD = (action.payload.order = action.payload.order - 1);
+      const quantityUpdateD = (action.payload.quantity = action.payload.quantity - 1);
       const newStateD = [
         ...filteredStateD,
-        { ...action.payload, orderUpdateD },
+        { ...action.payload, quantityUpdateD },
       ];
       console.log(newStateD);
       return newStateD.sort((a, b) => a.id - b.id);
@@ -85,7 +32,7 @@ const counter = (state = MenuItems, action) => {
       });
       const newStateDel = [
         ...filteredStateDel,
-        { ...action.payload, order: 0 },
+        { ...action.payload, quantity: 0 },
       ];
       console.log(newStateDel);
       return newStateDel.sort((a, b) => a.id - b.id);

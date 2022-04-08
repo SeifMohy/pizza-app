@@ -17,16 +17,15 @@ import {Increment, Decrement, Delete} from "../Actions/OrderActions"
 import { Link } from "react-router-dom";
 
 
-
-const Cart = () => {
+const Cart = ({handleClose}) => {
   const count = useSelector((state) => state.counter);
-  const ordered = count.filter((item) => item.order > 0);
+  const ordered = count.filter((item) => item.quantity > 0);
   const subtotal = sumOfOrder(ordered);
 
   function sumOfOrder(arr) {
     let count = 0;
     for (const item of arr) {
-      count = count + (item.price * item.order);
+      count = count + (item.price * item.quantity);
     }
     return count;
   }
@@ -45,7 +44,7 @@ const Cart = () => {
                   {item.name}
                 </Typography>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <Typography>Qty: {item.order}</Typography>
+                  <Typography>Qty: {item.quantity}</Typography>
                   <IconButton onClick={()=>dispatch(Decrement(item))}>
                     <RemoveIcon />
                   </IconButton>
@@ -54,7 +53,7 @@ const Cart = () => {
                   </IconButton>
                 </Box>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <Typography>Total: LE {item.price*item.order}</Typography>
+                  <Typography>Total: LE {item.price*item.quantity}</Typography>
                   <IconButton onClick={()=>dispatch(Delete(item))}>
                     <DeleteIcon />
                   </IconButton>
@@ -80,6 +79,7 @@ const Cart = () => {
             variant="contained"
             color="error"
             fullWidth
+            OnClick={{handleClose}}
           >
             Check Out
           </Button>

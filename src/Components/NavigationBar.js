@@ -30,13 +30,13 @@ const NavigationBar = () => {
   const id = open ? 'simple-popover' : undefined;
 
   const count = useSelector((state => state.counter));
-  const ordered = count.filter((item) => item.order>0)
+  const ordered = count.filter((item) => item.quantity>0)
   const cartCount = sumOfCart(ordered);
 
   function sumOfCart(arr) {
     let count = 0;
     for (const item of arr) {
-      count = count + item.order;
+      count = count + item.quantity;
     }
     return count;
   }
@@ -60,10 +60,10 @@ const NavigationBar = () => {
         </Link>
         <Box sx={{ display: { xs: "flex" } }}>
           <Box sx={{ display: { xs: "flex" } }}>
-            <Button sx={{ my: 2, color: "white", display: "block" }}>
+            <Button href="#menu" sx={{ my: 2, color: "white", display: "block" }}>
               Menu
             </Button>
-            <Button sx={{ my: 2, color: "white", display: "block" }}>
+            <Button href="#menu" sx={{ my: 2, color: "white", display: "block" }}>
               Most Popular
             </Button>
           </Box>
@@ -87,7 +87,7 @@ const NavigationBar = () => {
           horizontal: 'left',
         }}
       >
-        <Cart />
+        <Cart handleClose={handleClose}/>
       </Popover>
         </Box>
       </Toolbar>

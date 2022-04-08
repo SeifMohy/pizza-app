@@ -11,14 +11,20 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import {useSelector, useDispatch} from "react-redux"
 import {Increment, Decrement} from "../Actions/OrderActions"
+import { useEffect } from "react";
+import {getMenu} from "../Actions/OrderActions"
+
 
 const Menu = () => {
 
     const count = useSelector((state => state.counter));
     const dispatch = useDispatch();
+
+    useEffect(() => {
+      dispatch(getMenu());
+    }, []);
     
     console.log(count)
- 
 
   return (
     <Box sx={{ mt: 3, minHeight:"50vh"}}>
@@ -31,7 +37,7 @@ const Menu = () => {
         >
 {count.map((item)=>{
     return (
-        <Grid sm={4}>
+        <Grid id="menu" sm={4}>
         <Card sx={{ display: "flex", m:1}}>
           <Box sx={{ display: "flex", flexDirection: "row" }}>
             <img src={item.image} />
@@ -48,10 +54,10 @@ const Menu = () => {
               </Typography>
               <Typography>Price:{item.price}</Typography>
               <Box sx={{ display: "flex", alignItems: "center" }}>
-              <IconButton disabled={item.order? false:true} onClick={()=>dispatch(Decrement(item), console.log(item))}>
+              <IconButton disabled={item.quantity? false:true} onClick={()=>dispatch(Decrement(item), console.log(item))}>
                 <RemoveIcon />
               </IconButton>
-              <Typography>{item.order}</Typography>
+              <Typography>{item.quantity}</Typography>
               <IconButton onClick={()=>dispatch(Increment(item))}>
                 <AddIcon />
               </IconButton>

@@ -11,6 +11,7 @@ import { red } from "@mui/material/colors";
 const b1c = red[900];
 
 const ShowCase = () => {
+
   return (
     <Box sx={{ pt: 11, bgcolor: "#303030" }}>
       <Container maxWidth="md">
@@ -30,11 +31,16 @@ const ShowCase = () => {
             }}
           >
             <Typography
-              sx={{ mb: 3, fontWeight: "bold", color: "white" }}
+              sx={{
+                mb: 3,
+                fontWeight: "bold",
+                color: "white",
+              }}
               variant="h3"
             >
-              ENJOY OUR DELICIOUS FOOD
+              ENJOY OUR DELICIOUS <span>FOOD</span> 
             </Typography>
+
             <Button
               sx={{ px: 2, color: "white" }}
               startIcon={<RectangleIcon fontsize="large" sx={{ color: b1c }} />}

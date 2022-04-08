@@ -6,6 +6,7 @@ import { red } from "@mui/material/colors";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import MPizza from "../Pictures/MPizza.png";
+import { styled } from '@mui/material/styles';
 
 
 const MenuItems=[
@@ -22,6 +23,24 @@ const b1c = red[900];
 //make an if statement to change items sent to menu according to pressed filter button
 
 const Filters = () => {
+  const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
+    '& .MuiToggleButtonGroup-grouped': {
+      margin: theme.spacing(2),
+      border: 1, 
+
+      '&.Mui-disabled': {
+        border: 1,
+        color: "error",
+        textColor: "white",
+      },
+      '&:not(:first-of-type)': {
+        border: "1px solid",
+      },
+      '&:first-of-type': {
+        border: "1px solid",
+      },
+    },
+  }));
   const [filter, setFilter] = React.useState("Popular");
 
   const handleFilter = (event, newFilter) => {
@@ -32,11 +51,11 @@ const Filters = () => {
 console.log(filteredItems)
   return (
     <Container maxWidth="sm">
-      <ToggleButtonGroup
+      <StyledToggleButtonGroup
         value={filter}
         exclusive
         onChange={handleFilter}
-        sx={{ mt: 4 }}
+        sx={{ mt: 4}}
       >
         <ToggleButton value="Popular" sx={{ color: "black" }} variant="outlined" color="error"> 
           POPULAR
@@ -53,7 +72,7 @@ console.log(filteredItems)
         <ToggleButton value="Drinks" sx={{ color: "black" }} variant="outlined" color="error">
           DRINKS
         </ToggleButton>
-      </ToggleButtonGroup>
+      </StyledToggleButtonGroup>
     </Container>
   );
 };

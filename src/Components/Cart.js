@@ -38,7 +38,7 @@ const Cart = ({handleClose}) => {
         {ordered.map((item) => (
           <Card elevation={0} sx={{ display: "flex", m: 1 }}>
             <Box sx={{ display: "flex", flexDirection: "row" }}>
-              <img src={item.image} />
+            <img src={item.imageUrl} id="pizzaimg"/>
               <CardContent>
                 <Typography component="div" variant="h5">
                   {item.name}

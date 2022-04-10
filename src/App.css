@@ -17,5 +17,10 @@ body {
 }
 
 span {
-color: #ff9200;
+  color: #ff9200;
+}
+
+#pizzaimg {
+  width: 200px;
+  object-fit: contain;
 }

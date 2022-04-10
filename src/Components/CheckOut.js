@@ -16,6 +16,7 @@ import { Increment, Decrement, Delete } from "../Actions/OrderActions";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from 'react-router';
+import * as api from "../API"; 
 
 const CheckOut = () => {
   const count = useSelector((state) => state.counter);
@@ -36,18 +37,18 @@ const CheckOut = () => {
 
   const formik = useFormik({
     initialValues: {
-      Name: "",
+      name: "",
       Mobile: "",
-      Address: "",
+      address: "",
       City: "",
-      Order: ordered,
-      OrderID: "1",
+      Items: ordered,
+
     },
     onSubmit: async (values) => {
       formik.resetForm();
-      console.log(values);
-      //       const response = await api.addOrder(id, values);
-      //       console.log(response);
+      //console.log(values);
+      const response = await api.addOrder(values);
+      console.log(response);
       navigate("/orderplaced")
     },
   });
@@ -66,7 +67,7 @@ const CheckOut = () => {
           <TextField
             variant="standard"
             sx={{ width: "70%", m: 2, mx: 5 }}
-            name="Name"
+            name="name"
             label="Name"
             onChange={formik.handleChange}
             value={formik.values.Name}
@@ -84,7 +85,7 @@ const CheckOut = () => {
           <TextField
             variant="standard"
             sx={{ width: "70%", m: 2, mx: 5 }}
-            name="Address"
+            name="address"
             label="Address"
             onChange={formik.handleChange}
             value={formik.values.Address}
@@ -139,7 +140,7 @@ const CheckOut = () => {
         {ordered.map((item) => (
           <Card elevation={0} sx={{ display: "flex", m: 1 }}>
             <Box sx={{ display: "flex", flexDirection: "row" }}>
-              <img src={item.image} />
+            <img src={item.imageUrl} id="pizzaimg"/>
               <CardContent>
                 <Typography component="div" variant="h5">
                   {item.name}

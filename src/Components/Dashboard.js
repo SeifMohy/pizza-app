@@ -13,8 +13,6 @@ import {ToggleCheckBox} from "../Actions/DashboardActions"
 import { useEffect } from "react";
 import { getOrders } from "../Actions/DashboardActions";
 
-
-
 const b1c = red[900];
 
 const Dashboard = () => {
@@ -84,7 +82,7 @@ console.log(orders);
                       }}
                     >
                       <FormControlLabel
-                        label={<Typography style={{color:"black"}}>{order.id} Qty: {order.quantity}</Typography>}
+                        label={<Typography style={{color:"black"}}>{order.menu.name} Qty: {order.quantity}</Typography>}
                         control={<Checkbox color="default" />}
                         checked={order.complete}
                         onClick={()=>dispatch(ToggleCheckBox(order ,item.id))}

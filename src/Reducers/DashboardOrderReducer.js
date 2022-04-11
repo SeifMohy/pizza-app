@@ -3,7 +3,7 @@ const ordered = (state = [], action) => {
     case "SET_ORDERS":
       return action.payload.map((order) =>{
           return {...order, OrderLines: order.OrderLines.map((line)=>{
-            return {...line, complete: true} 
+            return {...line, complete: false} 
           })}
       })
     case "TOGGLE":

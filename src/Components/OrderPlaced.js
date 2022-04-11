@@ -17,7 +17,7 @@ const OrderPlaced = () => {
         minHeight:"90vh",
       }}
     >
-      <img src={Check} />
+      <img src={Check} alt="check"/>
       <Typography variant="h3">Order Placed</Typography>
       <Typography variant="subtitle2">Order Number: {ordId} </Typography>
     </Box>

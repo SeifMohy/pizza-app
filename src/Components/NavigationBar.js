@@ -55,7 +55,7 @@ const NavigationBar = () => {
           >
             OBSD
           </Typography>
-          <img src={Logo} />
+          <img src={Logo} alt="Logo"/>
         </Box>
         </Link>
         <Box sx={{ display: { xs: "flex" } }}>
@@ -74,7 +74,7 @@ const NavigationBar = () => {
               color="inherit"
               onClick={handleClick}
             >
-              <img src={DIcon} />
+              <img src={DIcon} alt="Icon"/>
             </IconButton>
           </Badge>
           <Popover

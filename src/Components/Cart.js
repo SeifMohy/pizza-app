@@ -1,6 +1,5 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
@@ -12,7 +11,6 @@ import Divider from "@mui/material/Divider";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useSelector, useDispatch } from "react-redux";
 import {Increment, Decrement, Delete} from "../Actions/OrderActions"
-import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router';
 
 
@@ -38,11 +36,11 @@ const navigate = useNavigate();
   return (
     
     <div>
-      <Grid sm={4}>
+
         {ordered.map((item) => (
-          <Card elevation={0} sx={{ display: "flex", m: 1 }}>
+          <Card key={item.id} elevation={0} sx={{ display: "flex", m: 1 }}>
             <Box sx={{ display: "flex", flexDirection: "row" }}>
-            <img src={item.imageUrl} id="pizzaimg"/>
+            <img alt="Pizza" src={item.imageUrl} id="pizzaimg"/>
               <CardContent>
                 <Typography component="div" variant="h5">
                   {item.name}
@@ -87,7 +85,6 @@ const navigate = useNavigate();
             Check Out
           </Button>
         </Box>
-      </Grid>
     </div>
   );
 };

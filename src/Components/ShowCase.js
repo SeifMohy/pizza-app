@@ -43,19 +43,19 @@ const ShowCase = () => {
 
             <Button
               sx={{ px: 2, color: "white" }}
-              startIcon={<RectangleIcon fontsize="large" sx={{ color: b1c }} />}
+              startIcon={<RectangleIcon fontSize="large" sx={{ color: b1c }} />}
             >
               Buy 1 Get 2
             </Button>
             <Button
               sx={{ px: 2, color: "white" }}
-              startIcon={<RectangleIcon fontsize="large" sx={{ color: b1c }} />}
+              startIcon={<RectangleIcon fontSize="large" sx={{ color: b1c }} />}
             >
               Order Online Now
             </Button>
           </Grid>
           <Grid sm={6} sx={{ p: 5 }}>
-            <img src={SCPizza} />
+            <img src={SCPizza} alt="ShowCase Pizza"/>
           </Grid>
         </Grid>
       </Container>

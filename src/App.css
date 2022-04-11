@@ -6,12 +6,11 @@ body {
   height: 100%;
 }
 
-.footer {
+#footer {
   left: 0;
   bottom: 0;
   right: 0;
   background-color: #303030;
-  justify-content: space-between;
   margin-top: 0;
   width: 100%;
 }

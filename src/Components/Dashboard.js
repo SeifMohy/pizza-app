@@ -27,9 +27,9 @@ console.log(orders);
     <Grid
       container
       spacing={2}
-      sx={{ mb: 0, mt: 5, maxWidth: "lg", minHeight: "85vh" }}
+      sx={{ mb: 0, mt: 7, maxWidth: "lg", minHeight: "85vh" }}
     >
-      <Grid sm={3} sx={{ py: 3, bgcolor: "#303030" }}>
+      <Grid item sm={3} sx={{ py: 3, bgcolor: "#303030" }}>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <Typography sx={{ color: "white" }} variant="h4">
             Dashboard
@@ -38,13 +38,13 @@ console.log(orders);
         <Box sx={{ justifyContent: "center", displayDirection: "column" }}>
           <Button
             sx={{ px: 2, color: "white", display: "flex", m: 2 }}
-            startIcon={<RectangleIcon fontsize="large" sx={{ color: b1c }} />}
+            startIcon={<RectangleIcon fontSize="large" sx={{ color: b1c }} />}
           >
             Pending Orders
           </Button>
           <Button
             sx={{ px: 2, color: "white", display: "flex", m: 2 }}
-            startIcon={<RectangleIcon fontsize="large" sx={{ color: b1c }} />}
+            startIcon={<RectangleIcon fontSize="large" sx={{ color: b1c }} />}
           >
             Completed Orders
           </Button>
@@ -52,6 +52,8 @@ console.log(orders);
       </Grid>
 
       <Grid
+      item
+      container
         sm={9}
         spacing={2}
         sx={{
@@ -63,7 +65,7 @@ console.log(orders);
       >
         {orders.map((item) => {
           return (
-            <Grid sm={5} sx={{ m: 1.5 }}>
+            <Grid item key={item.id} sm={5} sx={{ m: 1.5 }}>
               <Card>
                 <Box sx={{ bgcolor: "#303030" }}>
                   <Typography align="right" sx={{ color: "white", mx: 1 }}>
@@ -74,6 +76,7 @@ console.log(orders);
                 {item.OrderLines.map((order) => {
                   return (
                     <CardContent
+                    key={order.id}
                       sx={{
                         display: "flex",
                         flexDirection: "column",

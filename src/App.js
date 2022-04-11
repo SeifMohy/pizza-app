@@ -39,12 +39,6 @@ const theme = createTheme({
 });
 
 function App() {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(getMenu());
-  // }, []);
-
-  // const state = useSelector(state => state.posts)
 
   return (
     <div>

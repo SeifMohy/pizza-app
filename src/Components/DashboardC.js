@@ -24,13 +24,13 @@ const DashboardC = () => {
         <Box sx={{ justifyContent: "center", displayDirection: "column" }}>
           <Button
             sx={{ px: 2, color: "white", display: "flex", m: 2 }}
-            startIcon={<RectangleIcon fontsize="large" sx={{ color: b1c }} />}
+            startIcon={<RectangleIcon fontSize="large" sx={{ color: b1c }} />}
           >
             Pending Orders
           </Button>
           <Button
             sx={{ px: 2, color: "white", display: "flex", m: 2 }}
-            startIcon={<RectangleIcon fontsize="large" sx={{ color: b1c }} />}
+            startIcon={<RectangleIcon fontSize="large" sx={{ color: b1c }} />}
           >
             Completed Orders
           </Button>

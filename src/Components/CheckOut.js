@@ -14,7 +14,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { useSelector, useDispatch } from "react-redux";
 import { Increment, Decrement, Delete } from "../Actions/OrderActions";
 import { useFormik } from "formik";
-import * as yup from "yup";
+//import * as yup from "yup";
 import { useNavigate } from 'react-router';
 import * as api from "../API"; 
 
@@ -55,7 +55,7 @@ const CheckOut = () => {
 
   return (
     <Grid container spacing={1} sx={{ mt: 10, minHeight: "82vh" }}>
-      <Grid sm={7}>
+      <Grid item sm={7}>
         <Box
           sx={{
             display: "flex",
@@ -136,11 +136,11 @@ const CheckOut = () => {
         flexItem
       />
 
-      <Grid style={{ height: "70vh" , overflowY: "scroll" }} sm={4}>
+      <Grid item style={{ height: "70vh" , overflowY: "scroll" }} sm={4}>
         {ordered.map((item) => (
           <Card elevation={0} sx={{ display: "flex", m: 1 }}>
             <Box sx={{ display: "flex", flexDirection: "row" }}>
-            <img src={item.imageUrl} id="pizzaimg"/>
+            <img src={item.imageUrl} alt="Pizza" id="pizzaimg"/>
               <CardContent>
                 <Typography component="div" variant="h5">
                   {item.name}

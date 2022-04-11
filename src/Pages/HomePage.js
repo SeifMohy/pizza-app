@@ -2,7 +2,7 @@ import React from "react";
 import ShowCase from "../Components/ShowCase";
 import Filters from "../Components/Filters";
 import Menu from "../Components/Menu";
-import {useSelector} from "react-redux"
+import {useSelector} from "react-redux";
 
 const HomePage = () => {
   const [filter, setFilter] = React.useState("1");
@@ -10,7 +10,7 @@ const HomePage = () => {
   const count = useSelector((state => state.counter));
 
   const filteredItems = count.filter((item) => {
-    console.log(item.category.id);
+    //console.log(item.category.id);
     return item.category.id === +filter;
   });
 

@@ -8,22 +8,18 @@ import CardContent from "@mui/material/CardContent";
 import IconButton from "@mui/material/IconButton";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Increment, Decrement } from "../Actions/OrderActions";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getMenu } from "../Actions/OrderActions";
 
 const Menu = ({filteredItems}) => {
-  const count = useSelector((state) => state.counter);
   const dispatch = useDispatch();
-
-  // const [category, setCategory] = useState([]);
 
   useEffect(() => {
     dispatch(getMenu());
   }, []);
 
-  //console.log(category);
 
   return (
     <Box sx={{ mt: 3, minHeight: "50vh" }}>
@@ -36,7 +32,7 @@ const Menu = ({filteredItems}) => {
         >
           {filteredItems.map((item) => {
             return (
-              <Grid id="menu" sm={4}>
+              <Grid id="menu" xs={12} sm={4}>
                 <Card sx={{ display: "flex", m: 1 }}>
                   <Box sx={{ display: "flex", flexDirection: "row" }}>
                     <img src={item.imageUrl} id="pizzaimg" />

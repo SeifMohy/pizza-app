@@ -34,7 +34,7 @@ const ordered = (state = orders, action) => {
   switch (action.type) {
     case "TOGGLE":
       const newState= state.map((item)=>{
-        if(item.orderNumber != action.id){
+        if(item.orderNumber !== action.id){
           return item
         }
         const newOrder= item.order.map((line)=>{

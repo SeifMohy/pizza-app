@@ -1,19 +1,11 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import { Container } from "@mui/material";
-import { red } from "@mui/material/colors";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import MPizza from "../Pictures/MPizza.png";
 import { styled } from '@mui/material/styles';
-import {useSelector, useDispatch} from "react-redux"
 
 
-const b1c = red[900];
-
-const Filters = ({filter, setFilter, setFilteredItems}) => {
-  const count = useSelector((state => state.counter));
+const Filters = ({filter, setFilter}) => {
 
   const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
     '& .MuiToggleButtonGroup-grouped': {
@@ -33,21 +25,12 @@ const Filters = ({filter, setFilter, setFilteredItems}) => {
       },
     },
   }));
-  //const [filter, setFilter] = React.useState("1");
 
   const handleFilter = (event, newFilter) => {
     setFilter(newFilter);
   };
 
-  console.log(filter);
-
-//   const filteredItems = count.filter((item)=> {
-//     console.log(item.category.id)
-//     return item.category.id === +filter
-// });
-
-  //console.log(filteredItems);
-  // setFilteredItems(filteredItems);
+ // console.log(filter);
 
   return (
     <Container maxWidth="sm">

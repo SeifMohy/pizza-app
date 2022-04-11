@@ -1,13 +1,10 @@
 import React from "react";
-import AppBar from "@mui/material/AppBar";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Logo from "../Pictures/Logo.png";
-import DIcon from "../Pictures/DIcon.png";
+
 
 const FooterBar = () => {
   return (

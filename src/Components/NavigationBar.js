@@ -9,7 +9,7 @@ import Logo from "../Pictures/Logo.png";
 import DIcon from "../Pictures/DIcon.png";
 import Badge from "@mui/material/Badge";
 import Popover from '@mui/material/Popover';
-import Cart from "./Cart"
+import Cart from "./Cart";
 import {useSelector} from "react-redux"
 import { Link } from "react-router-dom";
 

@@ -13,6 +13,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { useSelector, useDispatch } from "react-redux";
 import {Increment, Decrement, Delete} from "../Actions/OrderActions"
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router';
 
 
 const Cart = ({handleClose}) => {
@@ -28,9 +29,14 @@ const Cart = ({handleClose}) => {
     return count;
   }
 
+
+const navigate = useNavigate();
+
+ 
   const dispatch = useDispatch();
 
   return (
+    
     <div>
       <Grid sm={4}>
         {ordered.map((item) => (
@@ -71,17 +77,15 @@ const Cart = ({handleClose}) => {
           }}
         >
           <Typography sx={{ mt: 1.5 }}>Subtotal: LE {subtotal}</Typography>
-          <Link to="/checkout" style={{textDecoration:"none"}} >
           <Button
             sx={{ mb: 2, color: "error" }}
             variant="contained"
             color="error"
             fullWidth
-            OnClick={{handleClose}}
+            onClick={()=> {navigate("/checkout"); handleClose();}}
           >
             Check Out
           </Button>
-          </Link>
         </Box>
       </Grid>
     </div>

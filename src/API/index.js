@@ -4,7 +4,7 @@ const API = axios.create({baseURL: "http://localhost:7080"})
 
 export const getMenu = () => API.get("/menu/")
 
-//export const getPostById = (id) => API.get(`/post/${id}`)
+export const getOrders = () => API.get(`/order/pendingOrders`)
 
 export const addOrder = (values) => API.post(`/order/send`, values)
 

@@ -53,7 +53,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/checkout" element={<CheckOut />} />
-          <Route path="/orderplaced" element={<OrderPlaced />} />
+          <Route path="/orderplaced/:ordId" element={<OrderPlaced />} />
           <Route path="/dashboard/pending" element={<Dashboard />} />
           <Route path="/dashboard/complete" element={<DashboardC />} />
         </Routes>

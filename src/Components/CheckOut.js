@@ -48,8 +48,8 @@ const CheckOut = () => {
       formik.resetForm();
       //console.log(values);
       const response = await api.addOrder(values);
-      console.log(response);
-      navigate("/orderplaced")
+      const ordId = response.data.id;
+      navigate(`/orderplaced/${ordId}`);
     },
   });
 

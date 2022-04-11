@@ -10,6 +10,10 @@ import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import {useSelector, useDispatch} from "react-redux"
 import {ToggleCheckBox} from "../Actions/DashboardActions"
+import { useEffect } from "react";
+import { getOrders } from "../Actions/DashboardActions";
+
+
 
 const b1c = red[900];
 
@@ -17,6 +21,10 @@ const Dashboard = () => {
   const orders = useSelector((state) => state.ordered);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(getOrders());
+  }, []);
+console.log(orders);
   return (
     <Grid
       container
@@ -61,11 +69,11 @@ const Dashboard = () => {
               <Card>
                 <Box sx={{ bgcolor: "#303030" }}>
                   <Typography align="right" sx={{ color: "white", mx: 1 }}>
-                    {item.created}
+                    {item.date}
                   </Typography>
                 </Box>
 
-                {item.order.map((order) => {
+                {item.OrderLines.map((order) => {
                   return (
                     <CardContent
                       sx={{
@@ -76,11 +84,10 @@ const Dashboard = () => {
                       }}
                     >
                       <FormControlLabel
-                        label={`${order.name} Qty:${order.order}`}
+                        label={<Typography style={{color:"black"}}>{order.id} Qty: {order.quantity}</Typography>}
                         control={<Checkbox color="default" />}
                         checked={order.complete}
-                        onClick={()=>dispatch(ToggleCheckBox(order ,item.orderNumber))}
-                        //onClick to dispatch check box.
+                        onClick={()=>dispatch(ToggleCheckBox(order ,item.id))}
                       />
                     </CardContent>
                   );

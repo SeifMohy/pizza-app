@@ -6,12 +6,14 @@ import RectangleIcon from "@mui/icons-material/Rectangle";
 import { red } from "@mui/material/colors";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import {useSelector, useDispatch} from "react-redux"
-import {ToggleCheckBox} from "../Actions/DashboardActions"
+import { useSelector, useDispatch } from "react-redux";
+import { ToggleCheckBox } from "../Actions/DashboardActions";
 import { useEffect } from "react";
 import { getOrders } from "../Actions/DashboardActions";
+import { orderComplete } from "../Actions/DashboardActions";
 
 const b1c = red[900];
 
@@ -19,10 +21,17 @@ const Dashboard = () => {
   const orders = useSelector((state) => state.ordered);
   const dispatch = useDispatch();
 
+  const [view, setView] = React.useState(false);
+
   useEffect(() => {
     dispatch(getOrders());
   }, []);
-console.log(orders);
+
+  const filteredOrders = orders.filter(order => order.complete === view);
+  
+  console.log(orders);
+
+
   return (
     <Grid
       container
@@ -39,12 +48,14 @@ console.log(orders);
           <Button
             sx={{ px: 2, color: "white", display: "flex", m: 2 }}
             startIcon={<RectangleIcon fontSize="large" sx={{ color: b1c }} />}
+            onClick={() => setView(false)}
           >
             Pending Orders
           </Button>
           <Button
             sx={{ px: 2, color: "white", display: "flex", m: 2 }}
             startIcon={<RectangleIcon fontSize="large" sx={{ color: b1c }} />}
+            onClick={() => setView(true)}
           >
             Completed Orders
           </Button>
@@ -52,8 +63,8 @@ console.log(orders);
       </Grid>
 
       <Grid
-      item
-      container
+        item
+        container
         sm={9}
         spacing={2}
         sx={{
@@ -63,7 +74,7 @@ console.log(orders);
           displayDirection: "row",
         }}
       >
-        {orders.map((item) => {
+        {filteredOrders.map((item) => {
           return (
             <Grid item key={item.id} sm={5} sx={{ m: 1.5 }}>
               <Card>
@@ -76,7 +87,7 @@ console.log(orders);
                 {item.OrderLines.map((order) => {
                   return (
                     <CardContent
-                    key={order.id}
+                      key={order.id}
                       sx={{
                         display: "flex",
                         flexDirection: "column",
@@ -85,14 +96,29 @@ console.log(orders);
                       }}
                     >
                       <FormControlLabel
-                        label={<Typography style={{color:"black"}}>{order.menu.name} Qty: {order.quantity}</Typography>}
+                        label={
+                          <Typography style={{ color: "black" }}>
+                            {order.menu.name} Qty: {order.quantity}
+                          </Typography>
+                        }
                         control={<Checkbox color="default" />}
                         checked={order.complete}
-                        onClick={()=>dispatch(ToggleCheckBox(order ,item.id))}
+                        onClick={() => dispatch(ToggleCheckBox(order, item.id))}
                       />
                     </CardContent>
                   );
                 })}
+                <CardActions
+                  sx={{ display: "flex", justifyContent: "flex-end" }}
+                >
+                  <Button
+                    variant="contained"
+                    color="error"
+                    onClick={() => dispatch(orderComplete(item.id))}
+                  >
+                    Complete
+                  </Button>
+                </CardActions>
               </Card>
             </Grid>
           );

@@ -4,7 +4,6 @@ import NavigationBar from "./Components/NavigationBar";
 import CheckOut from "./Components/CheckOut";
 import OrderPlaced from "./Components/OrderPlaced";
 import Dashboard from "./Components/Dashboard";
-import DashboardC from "./Components/DashboardC";
 import FooterBar from "./Components/FooterBar";
 import HomePage from "./Pages/HomePage";
 import { Routes, Route } from "react-router-dom";
@@ -49,7 +48,6 @@ function App() {
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/orderplaced/:ordId" element={<OrderPlaced />} />
           <Route path="/dashboard/pending" element={<Dashboard />} />
-          <Route path="/dashboard/complete" element={<DashboardC />} />
         </Routes>
         <FooterBar />
       </ThemeProvider>

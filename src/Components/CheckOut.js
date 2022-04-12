@@ -15,8 +15,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Increment, Decrement, Delete } from "../Actions/OrderActions";
 import { useFormik } from "formik";
 //import * as yup from "yup";
-import { useNavigate } from 'react-router';
-import * as api from "../API"; 
+import { useNavigate } from "react-router";
+import * as api from "../API";
 
 const CheckOut = () => {
   const count = useSelector((state) => state.counter);
@@ -33,7 +33,7 @@ const CheckOut = () => {
 
   const dispatch = useDispatch();
 
-  let navigate=useNavigate();
+  let navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -42,7 +42,6 @@ const CheckOut = () => {
       address: "",
       City: "",
       Items: ordered,
-
     },
     onSubmit: async (values) => {
       formik.resetForm();
@@ -55,7 +54,7 @@ const CheckOut = () => {
 
   return (
     <Grid container spacing={1} sx={{ mt: 10, minHeight: "82vh" }}>
-      <Grid item sm={7}>
+      <Grid item xs={12} sm={7}>
         <Box
           sx={{
             display: "flex",
@@ -101,7 +100,11 @@ const CheckOut = () => {
             color="secondary"
           ></TextField>
         </Box>
-
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <Typography sx={{ display: { xs: "flex", sm: "none" }, mt: 1.5 }}>
+            Subtotal: LE {subtotal}
+          </Typography>
+        </Box>
         <Box
           sx={{
             display: "flex",
@@ -121,7 +124,9 @@ const CheckOut = () => {
           <Button
             sx={{ mx: 1 }}
             variant="outlined"
-            onClick={()=>{navigate("/")}}
+            onClick={() => {
+              navigate("/");
+            }}
             color="secondary"
           >
             Cancel
@@ -130,17 +135,20 @@ const CheckOut = () => {
       </Grid>
 
       <Divider
-        sx={{ mx: 1.5 }}
+        sx={{ mx: 1.5, display: { xs: "none", sm: "flex" } }}
         orientation="vertical"
         variant="middle"
         flexItem
       />
 
-      <Grid item style={{ height: "70vh" , overflowY: "scroll" }} sm={4}>
+      <Grid item style={{ height: "70vh", overflowY: "scroll" }} sm={4}>
         {ordered.map((item) => (
-          <Card elevation={0} sx={{ display: "flex", m: 1 }}>
+          <Card
+            elevation={0}
+            sx={{ display: { xs: "none", sm: "flex" }, m: 1 }}
+          >
             <Box sx={{ display: "flex", flexDirection: "row" }}>
-            <img src={item.imageUrl} alt="Pizza" id="pizzaimg"/>
+              <img src={item.imageUrl} alt="Pizza" id="pizzaimg" />
               <CardContent>
                 <Typography component="div" variant="h5">
                   {item.name}
@@ -155,7 +163,9 @@ const CheckOut = () => {
                   </IconButton>
                 </Box>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <Typography variant="subtitle1">Total: LE {item.price * item.quantity}</Typography>
+                  <Typography variant="subtitle1">
+                    Total: LE {item.price * item.quantity}
+                  </Typography>
                   <IconButton onClick={() => dispatch(Delete(item))}>
                     <DeleteIcon />
                   </IconButton>
@@ -165,8 +175,13 @@ const CheckOut = () => {
           </Card>
         ))}
 
-        <Divider variant="middle" />
-        <Typography sx={{ mt: 1.5 }}>Subtotal: LE {subtotal}</Typography>
+        <Divider
+          sx={{ display: { xs: "none", sm: "flex" } }}
+          variant="middle"
+        />
+        <Typography sx={{ display: { xs: "none", sm: "flex" }, mt: 1.5 }}>
+          Subtotal: LE {subtotal}
+        </Typography>
       </Grid>
     </Grid>
   );

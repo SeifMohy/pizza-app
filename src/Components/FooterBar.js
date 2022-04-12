@@ -15,7 +15,7 @@ const FooterBar = () => {
             variant="h6"
             noWrap
             component="div"
-            sx={{ mr: 2, display: { md: "flex" }, color:"white" }}
+            sx={{ mr: 2, display: { xs: "none", md: "flex" }, color:"white" }}
           >
             OBSD
           </Typography>

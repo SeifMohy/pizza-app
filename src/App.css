@@ -24,3 +24,13 @@ span {
   object-fit: contain;
 }
 
+#SCpizzaimg{
+  display: flex;
+  max-width: 100%;
+}
+
+/* @media(max-width: 500px){
+  .navBtn{
+    display: none
+  }
+} */

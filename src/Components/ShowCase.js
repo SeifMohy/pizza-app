@@ -35,6 +35,7 @@ const ShowCase = () => {
                 mb: 3,
                 fontWeight: "bold",
                 color: "white",
+                pl: 5,
               }}
               variant="h3"
             >
@@ -42,20 +43,20 @@ const ShowCase = () => {
             </Typography>
 
             <Button
-              sx={{ px: 2, color: "white" }}
+              sx={{ px: 2, color: "white", pl: 5 }}
               startIcon={<RectangleIcon fontSize="large" sx={{ color: b1c }} />}
             >
               Buy 1 Get 2
             </Button>
             <Button
-              sx={{ px: 2, color: "white" }}
+              sx={{ px: 2, color: "white", pl: 5 }}
               startIcon={<RectangleIcon fontSize="large" sx={{ color: b1c }} />}
             >
               Order Online Now
             </Button>
           </Grid>
           <Grid sm={6} sx={{ p: 5 }}>
-            <img src={SCPizza} alt="ShowCase Pizza"/>
+            <img src={SCPizza} id="SCpizzaimg" alt="ShowCase Pizza"/>
           </Grid>
         </Grid>
       </Container>

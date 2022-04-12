@@ -60,10 +60,10 @@ const NavigationBar = () => {
         </Link>
         <Box sx={{ display: { xs: "flex" } }}>
           <Box sx={{ display: { xs: "flex" } }}>
-            <Button href="#menu" sx={{ my: 2, color: "white", display: "block" }}>
+            <Button href="#menu" sx={{ my: 2, color: "white", display: {xs: "none", sm: "block"} }}>
               Menu
             </Button>
-            <Button href="#menu" sx={{ my: 2, color: "white", display: "block" }}>
+            <Button href="#menu" sx={{ my: 2, color: "white", display: {xs: "none", sm: "block"} }}>
               Most Popular
             </Button>
           </Box>

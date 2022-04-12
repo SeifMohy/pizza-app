@@ -32,7 +32,7 @@ const Menu = ({filteredItems}) => {
         >
           {filteredItems.map((item) => {
             return (
-              <Grid item id="menu" key={item.id} xs={12} sm={4}>
+              <Grid item id="menu" key={item.id} xs={12} md={4}>
                 <Card sx={{ display: "flex", m: 1 }}>
                   <Box sx={{ display: "flex", flexDirection: "row" }}>
                     <img src={item.imageUrl} alt="pizza" id="pizzaimg" />

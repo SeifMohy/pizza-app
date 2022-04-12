@@ -9,7 +9,7 @@ const Filters = ({filter, setFilter}) => {
 
   const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
     '& .MuiToggleButtonGroup-grouped': {
-      margin: theme.spacing(2),
+      margin: theme.spacing(0),
       border: 1, 
 
       '&.Mui-disabled': {
@@ -38,7 +38,7 @@ const Filters = ({filter, setFilter}) => {
         value={filter}
         exclusive
         onChange={handleFilter}
-        sx={{ mt: 4}}
+        sx={{display: "flex", justifyContent: "center", mt: 4}}
       >
         <ToggleButton value="1" sx={{ color: "black" }} variant="outlined" color="error"> 
           POPULAR

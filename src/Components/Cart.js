@@ -38,7 +38,7 @@ const navigate = useNavigate();
     <div>
 
         {ordered.map((item) => (
-          <Card key={item.id} elevation={0} sx={{ display: "flex", m: 1 }}>
+          <Card key={item.id} elevation={0} sx={{ display: {sm: "flex"} }}>
             <Box sx={{ display: "flex", flexDirection: "row" }}>
             <img alt="Pizza" src={item.imageUrl} id="pizzaimg"/>
               <CardContent>

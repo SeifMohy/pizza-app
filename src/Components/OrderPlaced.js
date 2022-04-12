@@ -13,11 +13,11 @@ const OrderPlaced = () => {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        mt: 3,
+        mt: 5,
         minHeight:"90vh",
       }}
     >
-      <img src={Check} alt="check"/>
+      <img src={Check} id="SCpizzaimg" alt="check"/>
       <Typography variant="h3">Order Placed</Typography>
       <Typography variant="subtitle2">Order Number: {ordId} </Typography>
     </Box>

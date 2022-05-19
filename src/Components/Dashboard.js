@@ -13,6 +13,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { ToggleCheckBox } from "../Actions/DashboardActions";
 import { useEffect } from "react";
 import { getOrders } from "../Actions/DashboardActions";
+import DashboardButton from "./DashboardButton";
 import { orderComplete } from "../Actions/DashboardActions";
 import Timer from "./Timer";
 
@@ -79,15 +80,6 @@ const Dashboard = () => {
             <Grid item key={item.id} sm={5} sx={{ m: 1.5 }}>
               <Card>
                 <Timer item={item} />
-                {/* <Box sx={{ bgcolor: "#303030", display: 'flex', justifyContent: 'space-evenly' }}>
-                <Typography align="right" sx={{ color: "white", mx: 1 }}>
-                    Order ID: {item.id}
-                  </Typography>
-                  <Typography align="right" sx={{ color: "white", mx: 1 }}>
-                    {item.date}
-                  </Typography>
-                </Box> */}
-
                 {item.OrderLines.map((order) => {
                   return (
                     <CardContent
@@ -115,13 +107,7 @@ const Dashboard = () => {
                 <CardActions
                   sx={{ display: "flex", justifyContent: "flex-end" }}
                 >
-                  <Button
-                    variant="contained"
-                    color="error"
-                    onClick={() => dispatch(orderComplete(item.id))}
-                  >
-                    Complete
-                  </Button>
+                  <DashboardButton item={item}/>
                 </CardActions>
               </Card>
             </Grid>

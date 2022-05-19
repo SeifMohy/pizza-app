@@ -14,6 +14,7 @@ import { ToggleCheckBox } from "../Actions/DashboardActions";
 import { useEffect } from "react";
 import { getOrders } from "../Actions/DashboardActions";
 import { orderComplete } from "../Actions/DashboardActions";
+import Timer from "./Timer";
 
 const b1c = red[900];
 
@@ -27,10 +28,9 @@ const Dashboard = () => {
     dispatch(getOrders());
   }, []);
 
-  const filteredOrders = orders.filter(order => order.complete === view);
-  
-  console.log(orders);
+  const filteredOrders = orders.filter((order) => order.complete === view);
 
+  console.log(orders);
 
   return (
     <Grid
@@ -78,11 +78,15 @@ const Dashboard = () => {
           return (
             <Grid item key={item.id} sm={5} sx={{ m: 1.5 }}>
               <Card>
-                <Box sx={{ bgcolor: "#303030" }}>
+                <Timer item={item} />
+                {/* <Box sx={{ bgcolor: "#303030", display: 'flex', justifyContent: 'space-evenly' }}>
+                <Typography align="right" sx={{ color: "white", mx: 1 }}>
+                    Order ID: {item.id}
+                  </Typography>
                   <Typography align="right" sx={{ color: "white", mx: 1 }}>
                     {item.date}
                   </Typography>
-                </Box>
+                </Box> */}
 
                 {item.OrderLines.map((order) => {
                   return (

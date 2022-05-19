@@ -146,6 +146,7 @@ const CheckOut = () => {
           <Card
             elevation={0}
             sx={{ display: { xs: "none", sm: "flex" }, m: 1 }}
+            key={item.id}
           >
             <Box sx={{ display: "flex", flexDirection: "row" }}>
               <img src={item.imageUrl} alt="Pizza" id="pizzaimg" />

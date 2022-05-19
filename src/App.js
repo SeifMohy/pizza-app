@@ -8,6 +8,7 @@ import FooterBar from "./Components/FooterBar";
 import HomePage from "./Pages/HomePage";
 import { Routes, Route } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Timer from "./Components/Timer";
 
 const theme = createTheme({
   components: {
@@ -48,6 +49,7 @@ function App() {
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/orderplaced/:ordId" element={<OrderPlaced />} />
           <Route path="/dashboard/pending" element={<Dashboard />} />
+          <Route path="/timer" element={<Timer />} />
         </Routes>
         <FooterBar />
       </ThemeProvider>

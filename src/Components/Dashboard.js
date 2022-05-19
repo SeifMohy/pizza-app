@@ -37,7 +37,7 @@ const Dashboard = () => {
     <Grid
       container
       spacing={2}
-      sx={{ mb: 0, mt: 7, maxWidth: "lg", minHeight: "85vh" }}
+      sx={{ mb: 0, mt: 7, mx: 0, maxWidth: "lg", minHeight: "85vh" }}
     >
       <Grid item sm={3} sx={{ py: 3, bgcolor: "#303030" }}>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -67,17 +67,17 @@ const Dashboard = () => {
         item
         container
         sm={9}
-        spacing={2}
+        spacing={1}
+        direction="row"
+        justifyContent="center"
+        alignItems="flex-start"
         sx={{
           mt: 3,
-          display: "flex",
-          flexWrap: "wrap",
-          displayDirection: "row",
         }}
       >
         {filteredOrders.map((item) => {
           return (
-            <Grid item key={item.id} sm={5} sx={{ m: 1.5 }}>
+            <Grid item key={item.id} sm={3.5} sx={{ m: 1.5}}>
               <Card>
                 <Timer item={item} />
                 {item.OrderLines.map((order) => {

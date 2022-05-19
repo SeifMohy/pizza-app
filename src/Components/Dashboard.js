@@ -37,7 +37,7 @@ const Dashboard = () => {
     <Grid
       container
       spacing={2}
-      sx={{ mb: 0, mt: 7, mx: 0, maxWidth: "lg", minHeight: "85vh" }}
+      sx={{ mb: 0, mt: 7, mx: 0, minHeight: "85vh" }}
     >
       <Grid item sm={3} sx={{ py: 3, bgcolor: "#303030" }}>
         <Box sx={{ display: "flex", justifyContent: "center" }}>

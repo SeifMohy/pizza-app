@@ -12,25 +12,26 @@ import { useDispatch } from "react-redux";
 import { Increment, Decrement } from "../Actions/OrderActions";
 import { useEffect } from "react";
 import { getMenu } from "../Actions/OrderActions";
+import { MenuItem, MenuItems } from "../Types";
 
-const Menu = ({filteredItems}) => {
+type MenuProps = {
+  filteredItems: MenuItems
+}
+
+const Menu = ({ filteredItems }: MenuProps) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getMenu());
   }, []);
 
+  console.log(filteredItems);
 
   return (
     <Box sx={{ mt: 3, minHeight: "50vh" }}>
       <Container maxWidth="lg">
-        <Grid
-          container
-          spacing={1}
-          justify="center"
-          sx={{ alignItems: "center" }}
-        >
-          {filteredItems.map((item) => {
+        <Grid container spacing={1} sx={{ alignItems: "center" }}>
+          {filteredItems.map((item: MenuItem) => {
             return (
               <Grid item id="menu" key={item.id} xs={12} md={4}>
                 <Card sx={{ display: "flex", m: 1 }}>
@@ -51,9 +52,7 @@ const Menu = ({filteredItems}) => {
                       <Box sx={{ display: "flex", alignItems: "center" }}>
                         <IconButton
                           disabled={item.quantity ? false : true}
-                          onClick={() =>
-                            dispatch(Decrement(item), console.log(item))
-                          }
+                          onClick={() => dispatch(Decrement(item))}
                         >
                           <RemoveIcon />
                         </IconButton>

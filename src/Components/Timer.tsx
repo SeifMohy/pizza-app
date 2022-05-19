@@ -1,25 +1,30 @@
 import React from "react";
 import { useElapsedTime } from "use-elapsed-time";
 import { Box, Typography } from "@mui/material";
+import { OrderLine } from "../Types";
 
-String.prototype.toHHMMSS = function() {
-  var sec_num = parseInt(this, 10); // don't forget the second param
+function secondFormat(sec : string){
+  var sec_num = parseInt(sec, 10); // don't forget the second param
   var hours = Math.floor(sec_num / 3600);
   var minutes = Math.floor((sec_num - hours * 3600) / 60);
   var seconds = sec_num - hours * 3600 - minutes * 60;
 
   if (hours < 10) {
-    hours = "0" + hours;
+    hours = 0 + hours;
   }
   if (minutes < 10) {
-    minutes = "0" + minutes;
+    minutes = 0 + minutes;
   }
   if (seconds < 10) {
-    seconds = "0" + seconds;
+    seconds = +seconds;
   }
   return hours + ":" + minutes + ":" + seconds;
 };
-const Timer = ({ item }) => {
+
+type dashBoardButton = {
+  item: OrderLine;
+};
+const Timer = ({ item }: dashBoardButton) => {
   var timeDifference = new Date().getTimezoneOffset() * 60; //to get the time difference between utc and local time
 
   const { elapsedTime } = useElapsedTime({
@@ -41,7 +46,7 @@ const Timer = ({ item }) => {
         Order ID: {item.id}
       </Typography>
       <Typography align="right" sx={{ color: "white", mx: 1 }}>
-        {`${elapsedTime}`.toHHMMSS()}
+        {secondFormat(`${elapsedTime}`)}
         {/* formatting answer of seconds */}
       </Typography>
     </Box>

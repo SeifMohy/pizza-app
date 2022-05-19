@@ -12,28 +12,32 @@ import Popover from '@mui/material/Popover';
 import Cart from "./Cart";
 import {useSelector} from "react-redux"
 import { Link } from "react-router-dom";
+import { RootState } from "../index";
+import { Order, OrderLine } from "../Types";
 
 
 const NavigationBar = () => {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    // setAnchorEl(event.currentTarget);
+    setOpen(true)
   };
 
   const handleClose = () => {
-    setAnchorEl(null);
+    //setAnchorEl(null);
+    setOpen(false)
   };
 
-  const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
-  const count = useSelector((state => state.counter));
-  const ordered = count.filter((item) => item.quantity>0)
+  const count = useSelector(((state: RootState) => state.counter));
+  const ordered = count.filter((item: OrderLine) => item.quantity>0)
   const cartCount = sumOfCart(ordered);
 
-  function sumOfCart(arr) {
+  function sumOfCart(arr: OrderLine[]) {
     let count = 0;
     for (const item of arr) {
       count = count + item.quantity;
@@ -72,7 +76,7 @@ const NavigationBar = () => {
               size="small"
               edge="end"
               color="inherit"
-              onClick={handleClick}
+              onClick={(e) => handleClick(e)}
             >
               <img src={DIcon} alt="Icon"/>
             </IconButton>

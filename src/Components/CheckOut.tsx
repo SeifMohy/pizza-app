@@ -17,13 +17,15 @@ import { useFormik } from "formik";
 //import * as yup from "yup";
 import { useNavigate } from "react-router";
 import * as api from "../API";
+import { RootState } from "../index";
+import { MenuItem, MenuItems } from "../Types";
 
 const CheckOut = () => {
-  const count = useSelector((state) => state.counter);
-  const ordered = count.filter((item) => item.quantity > 0);
+  const count = useSelector((state: RootState) => state.counter);
+  const ordered = count.filter((item: MenuItem) => item.quantity > 0);
   const subtotal = sumOfOrder(ordered);
 
-  function sumOfOrder(arr) {
+  function sumOfOrder(arr: MenuItems) {
     let count = 0;
     for (const item of arr) {
       count = count + item.price * item.quantity;
@@ -69,7 +71,7 @@ const CheckOut = () => {
             name="name"
             label="Name"
             onChange={formik.handleChange}
-            value={formik.values.Name}
+            value={formik.values.name}
             color="secondary"
           ></TextField>
           <TextField
@@ -87,7 +89,7 @@ const CheckOut = () => {
             name="address"
             label="Address"
             onChange={formik.handleChange}
-            value={formik.values.Address}
+            value={formik.values.address}
             color="secondary"
           ></TextField>
           <TextField
@@ -117,7 +119,7 @@ const CheckOut = () => {
             sx={{ mx: 1, color: "error" }}
             variant="contained"
             color="error"
-            onClick={formik.handleSubmit}
+            onClick={()=> formik.handleSubmit}
           >
             Order Now
           </Button>
@@ -142,7 +144,7 @@ const CheckOut = () => {
       />
 
       <Grid item style={{ height: "70vh", overflowY: "scroll" }} sm={4}>
-        {ordered.map((item) => (
+        {ordered.map((item: MenuItem) => (
           <Card
             elevation={0}
             sx={{ display: { xs: "none", sm: "flex" }, m: 1 }}

@@ -16,11 +16,14 @@ import { getOrders } from "../Actions/DashboardActions";
 import DashboardButton from "./DashboardButton";
 import { orderComplete } from "../Actions/DashboardActions";
 import Timer from "./Timer";
+import { RootState } from "../index";
+import { Order, OrderLine } from "../Types";
+
 
 const b1c = red[900];
 
 const Dashboard = () => {
-  const orders = useSelector((state) => state.ordered);
+  const orders = useSelector((state : RootState) => state.ordered);
   const dispatch = useDispatch();
 
   const [view, setView] = React.useState(false);
@@ -29,7 +32,7 @@ const Dashboard = () => {
     dispatch(getOrders());
   }, []);
 
-  const filteredOrders = orders.filter((order) => order.complete === view);
+  const filteredOrders = orders.filter((order: Order) => order.complete === view);
 
   console.log(orders);
 
@@ -75,12 +78,12 @@ const Dashboard = () => {
           mt: 3,
         }}
       >
-        {filteredOrders.map((item) => {
+        {filteredOrders.map((item: Order) => {
           return (
             <Grid item key={item.id} sm={3.5} sx={{ m: 1.5}}>
               <Card>
                 <Timer item={item} />
-                {item.OrderLines.map((order) => {
+                {item.OrderLines.map((order: OrderLine) => {
                   return (
                     <CardContent
                       key={order.id}

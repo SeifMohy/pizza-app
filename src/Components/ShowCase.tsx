@@ -18,7 +18,6 @@ const ShowCase = () => {
         <Grid
           container
           spacing={3}
-          justify="center"
           sx={{ alignItems: "center" }}
         >
           <Grid

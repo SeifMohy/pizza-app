@@ -8,7 +8,6 @@ import FooterBar from "./Components/FooterBar";
 import HomePage from "./Pages/HomePage";
 import { Routes, Route } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Timer from "./Components/Timer";
 
 const theme = createTheme({
   components: {
@@ -16,6 +15,11 @@ const theme = createTheme({
       defaultProps: {
         disableRipple: true,
       },
+    },
+  },
+  status: { //creating type for custom theme
+    grey: {
+      main: "red",
     },
   },
   palette: {
@@ -26,20 +30,13 @@ const theme = createTheme({
       main: "#cd2f17",
       contrastText: "white",
     },
-    black: {
-      main: "#000000",
-    },
     secondary: {
       main: "#303030",
-    },
-    grey: {
-      main: "#707070",
     },
   },
 });
 
 function App() {
-
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -48,8 +45,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/orderplaced/:ordId" element={<OrderPlaced />} />
-          <Route path="/dashboard/pending" element={<Dashboard />} />
-          <Route path="/timer" element={<Timer />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         <FooterBar />
       </ThemeProvider>

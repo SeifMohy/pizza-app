@@ -19,11 +19,10 @@ import Timer from "./Timer";
 import { RootState } from "../index";
 import { Order, OrderLine } from "../Types";
 
-
 const b1c = red[900];
 
 const Dashboard = () => {
-  const orders = useSelector((state : RootState) => state.ordered);
+  const orders = useSelector((state: RootState) => state.ordered);
   const dispatch = useDispatch();
 
   const [view, setView] = React.useState(false);
@@ -32,16 +31,14 @@ const Dashboard = () => {
     dispatch(getOrders());
   }, []);
 
-  const filteredOrders = orders.filter((order: Order) => order.complete === view);
+  const filteredOrders = orders.filter(
+    (order: Order) => order.complete === view
+  );
 
   console.log(orders);
 
   return (
-    <Grid
-      container
-      spacing={2}
-      sx={{ mb: 0, mt: 7, mx: 0, minHeight: "85vh" }}
-    >
+    <Grid container spacing={2} sx={{ mb: 0, mt: 7, mx: 0, minHeight: "85vh" }}>
       <Grid item sm={3} sx={{ py: 3, bgcolor: "#303030" }}>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <Typography sx={{ color: "white" }} variant="h4">
@@ -80,7 +77,7 @@ const Dashboard = () => {
       >
         {filteredOrders.map((item: Order) => {
           return (
-            <Grid item key={item.id} sm={3.5} sx={{ m: 1.5}}>
+            <Grid item key={item.id} sm={3.5} sx={{ m: 1.5 }}>
               <Card>
                 <Timer item={item} />
                 {item.OrderLines.map((order: OrderLine) => {
@@ -110,7 +107,7 @@ const Dashboard = () => {
                 <CardActions
                   sx={{ display: "flex", justifyContent: "flex-end" }}
                 >
-                  <DashboardButton item={item}/>
+                  <DashboardButton item={item} />
                 </CardActions>
               </Card>
             </Grid>

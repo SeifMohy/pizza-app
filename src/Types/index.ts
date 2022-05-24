@@ -44,3 +44,7 @@ export type OrderLine = {
   date: string
 }
 
+export type AppStateType = {
+  cart: Order[]
+}
+

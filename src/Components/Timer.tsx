@@ -1,9 +1,9 @@
 import React from "react";
 import { useElapsedTime } from "use-elapsed-time";
 import { Box, Typography } from "@mui/material";
-import { OrderLine } from "../Types";
+import { Order } from "../Types";
 
-function secondFormat(sec : string){
+function secondFormat(sec: string) {
   var sec_num = parseInt(sec, 10); // don't forget the second param
   var hours = Math.floor(sec_num / 3600);
   var minutes = Math.floor((sec_num - hours * 3600) / 60);
@@ -19,10 +19,10 @@ function secondFormat(sec : string){
     seconds = +seconds;
   }
   return hours + ":" + minutes + ":" + seconds;
-};
+}
 
 type dashBoardButton = {
-  item: OrderLine;
+  item: Order;
 };
 const Timer = ({ item }: dashBoardButton) => {
   var timeDifference = new Date().getTimezoneOffset() * 60; //to get the time difference between utc and local time

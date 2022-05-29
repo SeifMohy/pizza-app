@@ -57,7 +57,7 @@ const CheckOut = () => {
       city: Yup.string().required("Required"),
     }),
   });
-
+//TODO: why does the required show up?
   return (
     <Grid container spacing={1} sx={{ mt: 10, minHeight: "82vh" }}>
       <Grid item xs={12} sm={7}>
@@ -71,6 +71,8 @@ const CheckOut = () => {
         >
           <TextField
             variant="standard"
+            error={formik.errors.name && formik.touched.name}
+            helperText={formik.errors.name}
             sx={{ width: "70%", m: 2, mx: 5 }}
             name="name"
             label="Name"
@@ -78,11 +80,13 @@ const CheckOut = () => {
             value={formik.values.name}
             onBlur={formik.handleBlur}
             color="secondary"
-          ></TextField>
+          />
           <TextField
             variant="standard"
+            error={formik.errors.mobile && formik.touched.mobile}
+            helperText={formik.errors.mobile}
             sx={{ width: "40%", m: 2, mx: 5 }}
-            name="Mobile"
+            name="mobile"
             label="Mobile"
             onChange={formik.handleChange}
             value={formik.values.mobile}
@@ -91,6 +95,8 @@ const CheckOut = () => {
           ></TextField>
           <TextField
             variant="standard"
+            error={formik.errors.address && formik.touched.address}
+            helperText={formik.errors.address}
             sx={{ width: "70%", m: 2, mx: 5 }}
             name="address"
             label="Address"
@@ -101,17 +107,16 @@ const CheckOut = () => {
           ></TextField>
           <TextField
             variant="standard"
+            error={formik.errors.city && formik.touched.city}
+            helperText={formik.errors.city}
             sx={{ width: "40%", m: 2, mx: 5 }}
-            label="city"
+            label="City"
             name="city"
             onChange={formik.handleChange}
             value={formik.values.city}
             onBlur={formik.handleBlur}
             color="secondary"
           ></TextField>
-          {formik.touched.city && formik.errors.city ? (
-            <p className="text-xs italic text-red-300">{formik.errors.city}</p>
-          ) : null}
         </Box>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <Typography sx={{ display: { xs: "flex", sm: "none" }, mt: 1.5 }}>

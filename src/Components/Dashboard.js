@@ -14,7 +14,6 @@ import { ToggleCheckBox } from "../Actions/DashboardActions";
 import { useEffect } from "react";
 import { getOrders } from "../Actions/DashboardActions";
 import DashboardButton from "./DashboardButton";
-import { orderComplete } from "../Actions/DashboardActions";
 import Timer from "./Timer";
 
 const b1c = red[900];

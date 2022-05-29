@@ -49,9 +49,6 @@ const Filters = ({filter, setFilter}) => {
         <ToggleButton value="3" sx={{ color: "black" }} variant="outlined" color="error">
           BURGER
         </ToggleButton>
-        <ToggleButton value="4" sx={{ color: "black" }} variant="outlined" color="error">
-          CREPE
-        </ToggleButton>
         <ToggleButton value="5" sx={{ color: "black" }} variant="outlined" color="error">
           DRINKS
         </ToggleButton>

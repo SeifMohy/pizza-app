@@ -8,7 +8,7 @@ import Logo from "../Pictures/Logo.png";
 
 const FooterBar = () => {
   return (
-    <BottomNavigation id="footer" elevation={0}>
+    <BottomNavigation id="footer" elevation={0} sx={{height: '25%'}}>
       <Toolbar sx={{width:5/6, display: 'flex', justifyContent: 'space-around'}}>
         <Box sx={{ display: { xs: "flex" }}}>
           <Typography

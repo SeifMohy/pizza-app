@@ -47,7 +47,7 @@ const Menu = ({filteredItems}) => {
                       >
                         {item.description}
                       </Typography>
-                      <Typography>Price:{item.price}</Typography>
+                      <Typography>Price: LE {item.price}</Typography>
                       <Box sx={{ display: "flex", alignItems: "center" }}>
                         <IconButton
                           disabled={item.quantity ? false : true}

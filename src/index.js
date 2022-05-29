@@ -8,6 +8,7 @@ import {Provider} from "react-redux";
 import {applyMiddleware, createStore, compose} from "redux"
 import {reducers} from "./Reducers"
 import thunk from "redux-thunk"
+//TODO: implement yup
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
 

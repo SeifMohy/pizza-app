@@ -14,7 +14,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { useSelector, useDispatch } from "react-redux";
 import { Increment, Decrement, Delete } from "../Actions/OrderActions";
 import { useFormik } from "formik";
-//import * as yup from "yup";
+import * as Yup from "yup";
 import { useNavigate } from "react-router";
 import * as api from "../API";
 
@@ -50,6 +50,12 @@ const CheckOut = () => {
       const ordId = response.data.id;
       navigate(`/orderplaced/${ordId}`);
     },
+    validationSchema: Yup.object({
+      name: Yup.string().required("Required"),
+      mobile: Yup.string().required("Required"),
+      address: Yup.string().required("Required"),
+      city: Yup.string().required("Required"),
+    }),
   });
 
   return (
@@ -69,7 +75,8 @@ const CheckOut = () => {
             name="name"
             label="Name"
             onChange={formik.handleChange}
-            value={formik.values.Name}
+            value={formik.values.name}
+            onBlur={formik.handleBlur}
             color="secondary"
           ></TextField>
           <TextField
@@ -78,7 +85,8 @@ const CheckOut = () => {
             name="Mobile"
             label="Mobile"
             onChange={formik.handleChange}
-            value={formik.values.Mobile}
+            value={formik.values.mobile}
+            onBlur={formik.handleBlur}
             color="secondary"
           ></TextField>
           <TextField
@@ -87,18 +95,23 @@ const CheckOut = () => {
             name="address"
             label="Address"
             onChange={formik.handleChange}
-            value={formik.values.Address}
+            value={formik.values.address}
+            onBlur={formik.handleBlur}
             color="secondary"
           ></TextField>
           <TextField
             variant="standard"
             sx={{ width: "40%", m: 2, mx: 5 }}
-            label="City"
-            name="City"
+            label="city"
+            name="city"
             onChange={formik.handleChange}
-            value={formik.values.City}
+            value={formik.values.city}
+            onBlur={formik.handleBlur}
             color="secondary"
           ></TextField>
+          {formik.touched.city && formik.errors.city ? (
+            <p className="text-xs italic text-red-300">{formik.errors.city}</p>
+          ) : null}
         </Box>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <Typography sx={{ display: { xs: "flex", sm: "none" }, mt: 1.5 }}>

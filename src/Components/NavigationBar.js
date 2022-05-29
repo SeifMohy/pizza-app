@@ -63,9 +63,6 @@ const NavigationBar = () => {
             <Button href="#menu" sx={{ my: 2, color: "white", display: {xs: "none", sm: "block"} }}>
               Menu
             </Button>
-            <Button href="#menu" sx={{ my: 2, color: "white", display: {xs: "none", sm: "block"} }}>
-              Most Popular
-            </Button>
           </Box>
           <Badge badgeContent={cartCount} color="primary" overlap="circular">
             <IconButton

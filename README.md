@@ -36,4 +36,4 @@ This project is a pizza delivery website with the aim of collecting the visitors
 - Postgresql
 - Supabase.
 
-## [Backend Repo](https://github.com/SeifMohy/pizza-app-backend/tree/master)
+## [Backend Repo](https://github.com/SeifMohy/pizza-app-backend)

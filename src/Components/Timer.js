@@ -2,8 +2,17 @@ import React from "react";
 import { useElapsedTime } from "use-elapsed-time";
 import { Box, Typography } from "@mui/material";
 
-String.prototype.toHHMMSS = function() {
-  var sec_num = parseInt(this, 10); // don't forget the second param
+function bgColor(sec){
+  if(sec < 300){
+    return "#249225"
+  }else if (sec < 600){
+    return "#FED000"
+  }else{
+    return "#E10000"
+  }
+}
+function formatTime(sec) {
+  var sec_num = parseInt(sec, 10); 
   var hours = Math.floor(sec_num / 3600);
   var minutes = Math.floor((sec_num - hours * 3600) / 60);
   var seconds = sec_num - hours * 3600 - minutes * 60;
@@ -18,7 +27,7 @@ String.prototype.toHHMMSS = function() {
     seconds = "0" + seconds;
   }
   return hours + ":" + minutes + ":" + seconds;
-};
+}
 const Timer = ({ item }) => {
   var timeDifference = new Date().getTimezoneOffset() * 60; //to get the time difference between utc and local time
 
@@ -32,7 +41,7 @@ const Timer = ({ item }) => {
   return (
     <Box
       sx={{
-        bgcolor: "#303030",
+        bgcolor: bgColor(elapsedTime),
         display: "flex",
         justifyContent: "space-evenly",
       }}
@@ -41,7 +50,7 @@ const Timer = ({ item }) => {
         Order ID: {item.id}
       </Typography>
       <Typography align="right" sx={{ color: "white", mx: 1 }}>
-        {`${elapsedTime}`.toHHMMSS()}
+        {formatTime(elapsedTime)}
         {/* formatting answer of seconds */}
       </Typography>
     </Box>

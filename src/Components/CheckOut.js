@@ -57,7 +57,7 @@ const CheckOut = () => {
       city: Yup.string().required("Required"),
     }),
   });
-//TODO: why does the required show up?
+
   return (
     <Grid container spacing={1} sx={{ mt: 10, minHeight: "82vh" }}>
       <Grid item xs={12} sm={7}>

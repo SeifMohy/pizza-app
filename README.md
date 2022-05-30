@@ -17,12 +17,20 @@ This project is a pizza delivery website with the aim of collecting the visitorâ
 ### Dashboard Page:
 ![Pending image](/ReadMe/PendingDashboard.png)
 
+### Mobile View:
+![Front Page mob](ReadMe/MobHomepage.png)
+![Cart mob](ReadMe/MobCart.png)
+![Checkout mob](ReadMe/MobCheckout.png)
+![Placed mob](ReadMe/MobOrderPlaced.png)
+
 ## Features:
 
 - Filtering Menu Items
 - Cart Tracking Increase/Decrease/Delete
 - Collecting Client Information
 - Dashboard Displaying Pending/Complete Orders
+
+## [Backend Repo](https://github.com/SeifMohy/pizza-app-backend)
 
 ## Technologies Used
 
@@ -35,5 +43,3 @@ This project is a pizza delivery website with the aim of collecting the visitorâ
 - Express
 - Postgresql
 - Supabase.
-
-## [Backend Repo](https://github.com/SeifMohy/pizza-app-backend)

@@ -8,6 +8,9 @@ import FooterBar from "./Components/FooterBar";
 import HomePage from "./Pages/HomePage";
 import { Routes, Route } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Provider } from "react-redux";
+import store from "./Store";
+
 
 const theme = createTheme({
   components: {
@@ -40,6 +43,7 @@ function App() {
   return (
     <div>
       <ThemeProvider theme={theme}>
+      <Provider store={store}>
         <NavigationBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -48,6 +52,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         <FooterBar />
+      </Provider>
       </ThemeProvider>
     </div>
   );
